@@ -2,42 +2,60 @@ import projects from "../data/projects";
 
 function Projects() {
   return (
-    <section id="work">
-      <div>
-        <p>THINGS I'VE SHIPPED</p>
+    <section id="work" className="projects">
+      <div className="projects-container">
+        <div className="projects-heading">
+          <div>
+            <p className="section-label">THINGS I'VE SHIPPED</p>
 
-        <h2>Projects</h2>
+            <h2>Projects</h2>
+          </div>
 
-        <p>
-          A collection of applications I've built while learning, experimenting,
-          and turning ideas into working software.
-        </p>
-      </div>
+          <p>
+            Real applications I've built while learning, experimenting, and
+            turning ideas into working software.
+          </p>
+        </div>
 
-      <div>
-        {projects.map((project) => (
-          <article key={project.id}>
-            <p>{project.type}</p>
+        <div className="projects-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.id}>
+              <div className="project-number">0{project.id}</div>
 
-            <h3>{project.title}</h3>
+              <div className="project-content">
+                <p className="project-type">{project.type}</p>
 
-            <p>{project.description}</p>
+                <h3>{project.title}</h3>
 
-            <p>{project.technologies.join(" • ")}</p>
+                <p className="project-description">{project.description}</p>
 
-            <a
-              href={project.liveDemo}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Demo
-            </a>
+                <div className="project-technologies">
+                  {project.technologies.map((technology) => (
+                    <span key={technology}>{technology}</span>
+                  ))}
+                </div>
+              </div>
 
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-          </article>
-        ))}
+              <div className="project-links">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub →
+                </a>
+
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live Demo →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

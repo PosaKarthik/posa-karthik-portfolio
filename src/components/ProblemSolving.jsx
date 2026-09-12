@@ -2,52 +2,62 @@ import problems from "../data/problems";
 
 function ProblemSolving() {
   return (
-    <section id="problems">
-      <div>
-        <p>HOW I THINK</p>
+    <section id="problems" className="problem-solving">
+      <div className="problem-solving-container">
+        <div className="problem-solving-heading">
+          <div>
+            <p className="section-label section-label-dark">HOW I THINK</p>
 
-        <h2>Problem-Solving Journal</h2>
+            <h2>Problem-Solving Journal</h2>
+          </div>
 
-        <p>
-          I solve coding problems regularly to improve my problem-solving
-          skills, recognize patterns, and write more efficient solutions.
-        </p>
-      </div>
+          <p>
+            A record of the coding problems I solve, the patterns I discover,
+            and how I improve a solution from brute force to optimal.
+          </p>
+        </div>
 
-      <div>
-        {problems.map((problem) => (
-          <article key={problem.id}>
-            <p>
-              {problem.platform} • {problem.difficulty}
-            </p>
+        <div className="problem-list">
+          {problems.map((problem) => (
+            <article className="problem-card" key={problem.id}>
+              <div className="problem-card-top">
+                <span>
+                  {problem.platform} · {problem.difficulty}
+                </span>
 
-            <h3>{problem.title}</h3>
+                <span>{problem.pattern}</span>
+              </div>
 
-            <p>{problem.problem}</p>
+              <div className="problem-card-content">
+                <div>
+                  <p className="problem-number">0{problem.id}</p>
 
-            <p>Pattern: {problem.pattern}</p>
+                  <h3>{problem.title}</h3>
+                </div>
 
-            <p>
-              <strong>Brute Force:</strong> {problem.bruteForce}
-            </p>
+                <p>{problem.problem}</p>
+              </div>
 
-            <p>
-              <strong>Optimal:</strong> {problem.optimal}
-            </p>
+              <div className="problem-approach">
+                <div>
+                  <span>BRUTE FORCE</span>
+                  <p>{problem.bruteForce}</p>
+                </div>
 
-            <p>
-              <strong>Time:</strong> {problem.timeComplexity}
-            </p>
+                <div>
+                  <span>OPTIMAL</span>
+                  <p>{problem.optimal}</p>
+                </div>
+              </div>
 
-            <p>
-              <strong>Space:</strong> {problem.spaceComplexity}
-            </p>
+              <div className="problem-footer">
+                <span>Time: {problem.timeComplexity}</span>
 
-            <p>
-              <strong>Takeaway:</strong> {problem.takeaway}
-            </p>
-          </article>
-        ))}
+                <span>Space: {problem.spaceComplexity}</span>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,9 +1,16 @@
 function Footer() {
   return (
-    <footer>
-      <p>© {new Date().getFullYear()} Posa Karthik</p>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-brand">
+          <span className="footer-logo">PK</span>
+          <p>Posa Karthik</p>
+        </div>
 
-      <p>Built with React • Java • Curiosity</p>
+        <p className="footer-message">Building. Solving. Improving.</p>
+
+        <p className="footer-copy">© {new Date().getFullYear()} Posa Karthik</p>
+      </div>
     </footer>
   );
 }

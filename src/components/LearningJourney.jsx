@@ -2,29 +2,38 @@ import learning from "../data/learning";
 
 function LearningJourney() {
   return (
-    <section id="learning">
-      <div>
-        <p>WHAT I'M FIGURING OUT</p>
+    <section id="learning" className="learning">
+      <div className="learning-container">
+        <div className="learning-heading">
+          <div>
+            <p className="section-label">WHAT I'M FIGURING OUT</p>
 
-        <h2>Learning Journey</h2>
+            <h2>Learning Journey</h2>
+          </div>
 
-        <p>
-          I'm continuously improving my development skills by learning new
-          technologies, building projects, and practicing problem-solving every
-          day.
-        </p>
-      </div>
+          <p>
+            I'm continuously learning, building, and improving — one concept and
+            one project at a time.
+          </p>
+        </div>
 
-      <div>
-        {learning.map((item) => (
-          <article key={item.title}>
-            <p>{item.status}</p>
+        <div className="learning-list">
+          {learning.map((item, index) => (
+            <article className="learning-item" key={item.title}>
+              <div className="learning-index">0{index + 1}</div>
 
-            <h3>{item.title}</h3>
+              <div className="learning-content">
+                <div className="learning-title-row">
+                  <h3>{item.title}</h3>
 
-            <p>{item.description}</p>
-          </article>
-        ))}
+                  <span>{item.status}</span>
+                </div>
+
+                <p>{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
