@@ -30,7 +30,9 @@ function ProblemSolving() {
 
               <div className="problem-card-content">
                 <div>
-                  <p className="problem-number">0{problem.id}</p>
+                  <p className="problem-number">
+                    {String(problem.id).padStart(2, "0")}
+                  </p>
 
                   <h3>{problem.title}</h3>
                 </div>
@@ -41,20 +43,48 @@ function ProblemSolving() {
               <div className="problem-approach">
                 <div>
                   <span>BRUTE FORCE</span>
-                  <p>{problem.bruteForce}</p>
+
+                  <p>{problem.bruteForce.explanation}</p>
+
+                  <div className="problem-complexity">
+                    <span>Time</span>
+                    <strong>{problem.bruteForce.timeComplexity}</strong>
+
+                    <span>Space</span>
+                    <strong>{problem.bruteForce.spaceComplexity}</strong>
+                  </div>
                 </div>
 
                 <div>
                   <span>OPTIMAL</span>
-                  <p>{problem.optimal}</p>
+
+                  <p>{problem.optimal.explanation}</p>
+
+                  <div className="problem-complexity">
+                    <span>Time</span>
+                    <strong>{problem.optimal.timeComplexity}</strong>
+
+                    <span>Space</span>
+                    <strong>{problem.optimal.spaceComplexity}</strong>
+                  </div>
                 </div>
               </div>
 
-              <div className="problem-footer">
-                <span>Time: {problem.timeComplexity}</span>
+              <div className="problem-reasoning">
+                <span>MY REASONING</span>
 
-                <span>Space: {problem.spaceComplexity}</span>
+                <p>{problem.reasoning}</p>
               </div>
+
+              <div className="problem-takeaway">
+                <span>KEY TAKEAWAY</span>
+
+                <p>{problem.takeaway}</p>
+              </div>
+              <a href={`/problems/${problem.id}`} className="problem-view">
+                <span>View Full Solution</span>
+                <span>→</span>
+              </a>
             </article>
           ))}
         </div>
