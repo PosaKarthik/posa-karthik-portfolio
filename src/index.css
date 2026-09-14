@@ -679,6 +679,45 @@ section > div {
   gap: 48px;
 }
 
+/* PROBLEM FILTERS */
+
+.problem-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.problem-filters input,
+.problem-filters select {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+
+  font-size: 14px;
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.problem-filters input::placeholder {
+  color: var(--text-muted);
+}
+
+.problem-filters input:focus,
+.problem-filters select:focus {
+  border-color: var(--accent);
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
 .problem-solving-heading h2 {
   font-size: clamp(40px, 5vw, 64px);
 
@@ -1372,6 +1411,12 @@ section > div {
     padding: 18px 20px;
   }
 
+  .problem-filters {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
   /* Learning */
 
   .learning-item {
@@ -1657,4 +1702,32 @@ section > div {
 
 .problem-code-wrapper .problem-code {
   margin-top: 28px;
+}
+
+.problem-empty {
+  padding: 60px 24px;
+  text-align: center;
+
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+
+  background: var(--bg-secondary);
+}
+
+.problem-empty h3 {
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.problem-empty p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.problem-count {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
 }
