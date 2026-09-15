@@ -34,7 +34,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/posa-karthik-portfolio">
       <Routes>
         <Route path="/" element={<Home />} />
 
