@@ -1,3 +1,5 @@
+import myPicture from "../assets/portfolio-picture.png";
+
 function Hero() {
   return (
     <section id="home" className="hero">
@@ -31,9 +33,17 @@ function Hero() {
         </div>
 
         <div className="hero-side">
-          <p>BUILD</p>
-          <p>SOLVE</p>
-          <p>IMPROVE</p>
+          <div className="hero-visual">
+            <div className="hero-visual-shape"></div>
+
+            <img src={myPicture} alt="Posa Karthik" className="hero-image" />
+
+            <div className="hero-values">
+              <p>BUILD</p>
+              <p>SOLVE</p>
+              <p>IMPROVE</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
