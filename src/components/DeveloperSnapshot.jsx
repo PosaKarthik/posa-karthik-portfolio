@@ -5,7 +5,7 @@ function DeveloperSnapshot() {
         <div className="snapshot-heading">
           <p className="section-label">PROFESSIONAL SNAPSHOT</p>
 
-          <h2>A quick look at what I'm working toward.</h2>
+          <h2>Building my foundation. Creating real-world applications.</h2>
         </div>
 
         <div className="snapshot-grid">
