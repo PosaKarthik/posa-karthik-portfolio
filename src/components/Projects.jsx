@@ -45,13 +45,15 @@ function Projects() {
                   GitHub →
                 </a>
 
-                <a
-                  href={project.liveDemo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo →
-                </a>
+                {project.liveDemo && (
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo →
+                  </a>
+                )}
               </div>
             </article>
           ))}

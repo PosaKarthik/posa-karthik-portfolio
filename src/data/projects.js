@@ -1,24 +1,35 @@
 const projects = [
   {
     id: 1,
-    title: "DevLaunch",
+    title: "Online Banking System",
     description:
-      "A developer productivity dashboard for tracking learning goals, progress, and daily development activities.",
-    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
-    type: "Frontend Project",
-    liveDemo: "https://posakarthik.github.io/devlaunch/",
-    github: "https://github.com/PosaKarthik/devlaunch",
+      "A Java-based banking application for account management and transaction history, built using JDBC and MySQL.",
+    technologies: ["Java", "JDBC", "MySQL"],
+    type: "Backend Project",
+    liveDemo: "",
+    github: "https://github.com/PosaKarthik/online-banking-system-java",
   },
 
   {
     id: 2,
-    title: "Brew Haven Coffee Shop",
+    title: "Employee Management REST API",
     description:
-      "A responsive coffee shop website focused on clean design, semantic HTML, and responsive layouts.",
-    technologies: ["HTML", "CSS"],
-    type: "Frontend Project",
-    liveDemo: "https://posakarthik.github.io/brew-haven/",
-    github: "https://github.com/PosaKarthik/brew-haven",
+      "A production-ready Spring Boot REST API featuring CRUD operations, DTO mapping, validation, global exception handling, pagination, sorting, logging, MySQL, and Swagger/OpenAPI documentation.",
+    technologies: ["Java", "Spring Boot", "REST API", "MySQL", "Swagger"],
+    type: "Backend Project",
+    liveDemo: "",
+    github: "https://github.com/PosaKarthik/employee-management-api",
+  },
+
+  {
+    id: 3,
+    title: "Multi-Tenant B2B Logistics Ledger SaaS",
+    description:
+      "A multi-tenant logistics SaaS application currently being built with Spring Boot and MySQL, with React and microservices planned as the architecture evolves.",
+    technologies: ["Java", "Spring Boot", "MySQL", "React", "Microservices"],
+    type: "Full Stack SaaS",
+    liveDemo: "",
+    github: "https://github.com/PosaKarthik/multi-tenant-logistics-ledger",
   },
 ];
 
