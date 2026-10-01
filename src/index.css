@@ -1,3 +1,7 @@
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
 :root {
   --bg-primary: #f8fafc;
   --bg-secondary: #ffffff;
@@ -12,6 +16,10 @@
   --accent-hover: #1d4ed8;
 
   --border: #e2e8f0;
+  --dark-border: #334155;
+
+  --dark-card: #111a2e;
+  --dark-card-hover: #172033;
 
   --container-width: 1200px;
   --section-padding: 100px;
@@ -44,7 +52,6 @@ body {
   color: var(--text-primary);
 
   line-height: 1.6;
-
   overflow-x: hidden;
 }
 
@@ -137,9 +144,7 @@ section > div {
 
   letter-spacing: -0.5px;
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .navbar-logo:hover {
@@ -175,7 +180,6 @@ section > div {
 
 .navbar-links a:hover {
   color: var(--text-primary);
-
   transform: translateY(-1px);
 }
 
@@ -205,7 +209,6 @@ section > div {
 
 .navbar-resume:hover {
   background: var(--accent-hover);
-
   transform: translateY(-2px);
 }
 
@@ -255,10 +258,6 @@ section > div {
     transform 0.25s ease,
     opacity 0.25s ease;
 }
-
-/* =========================================================
-   MOBILE BUTTON ACTIVE
-========================================================= */
 
 .navbar-menu-button.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
@@ -314,7 +313,6 @@ section > div {
 
 .hero-content {
   width: 100%;
-
   max-width: 700px;
 
   min-width: 0;
@@ -393,7 +391,6 @@ section > div {
 
 .button-primary {
   background: var(--accent);
-
   color: #ffffff;
 }
 
@@ -414,7 +411,7 @@ section > div {
 }
 
 /* =========================================================
-   HERO RIGHT SIDE
+   HERO IMAGE
 ========================================================= */
 
 .hero-side {
@@ -435,13 +432,8 @@ section > div {
   height: 600px;
 
   max-width: 100%;
-
   min-width: 0;
 }
-
-/* =========================================================
-   NO BACKGROUND SHAPES
-========================================================= */
 
 .hero-visual-shape {
   display: none;
@@ -451,10 +443,6 @@ section > div {
 .hero-visual::after {
   display: none;
 }
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
 
 .hero-image {
   position: absolute;
@@ -468,7 +456,6 @@ section > div {
   left: 0;
 
   object-fit: contain;
-
   object-position: top center;
 
   border-radius: 0;
@@ -487,36 +474,44 @@ section > div {
   position: absolute;
 
   top: 220px;
-
   right: 0;
 
   display: flex;
-
   flex-direction: column;
 
   gap: 22px;
 
   padding-left: 22px;
 
-  border-left: 1px solid #94a3b8;
-
-  z-index: 5;
+  z-index: 3;
 }
 
 .hero-values p {
-  margin: 0;
+  color: var(--text-muted);
 
-  color: #64748b;
-
-  font-size: 12px;
-
+  font-size: 11px;
   font-weight: 700;
 
-  letter-spacing: 4px;
+  letter-spacing: 3px;
+}
 
-  line-height: 1;
+/* =========================================================
+   SECTION LABEL
+========================================================= */
 
-  white-space: nowrap;
+.section-label {
+  margin-bottom: 16px;
+
+  color: var(--accent);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.section-label-dark {
+  color: #60a5fa;
 }
 
 /* =========================================================
@@ -529,7 +524,6 @@ section > div {
 
 .snapshot-container {
   display: flex;
-
   flex-direction: column;
 
   gap: 56px;
@@ -537,18 +531,6 @@ section > div {
 
 .snapshot-heading {
   max-width: 650px;
-}
-
-.section-label {
-  margin-bottom: 16px;
-
-  color: var(--accent);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
 }
 
 .snapshot-heading h2 {
@@ -577,7 +559,6 @@ section > div {
   border-bottom: 1px solid var(--border);
 
   display: flex;
-
   flex-direction: column;
 
   justify-content: space-between;
@@ -599,7 +580,6 @@ section > div {
   color: var(--text-muted);
 
   font-size: 11px;
-
   font-weight: 700;
 
   letter-spacing: 1.8px;
@@ -621,13 +601,11 @@ section > div {
 
 .tech-stack {
   background: var(--bg-dark);
-
   color: var(--text-light);
 }
 
 .tech-stack-container {
   display: flex;
-
   flex-direction: column;
 
   gap: 56px;
@@ -635,10 +613,6 @@ section > div {
 
 .tech-stack-heading {
   max-width: 700px;
-}
-
-.section-label-dark {
-  color: #60a5fa;
 }
 
 .tech-stack-heading h2 {
@@ -666,8 +640,8 @@ section > div {
 
   grid-template-columns: repeat(2, 1fr);
 
-  border-top: 1px solid #334155;
-  border-left: 1px solid #334155;
+  border-top: 1px solid var(--dark-border);
+  border-left: 1px solid var(--dark-border);
 }
 
 .tech-card {
@@ -675,14 +649,13 @@ section > div {
 
   padding: 32px;
 
-  border-right: 1px solid #334155;
-  border-bottom: 1px solid #334155;
+  border-right: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
 
   display: flex;
-
   flex-direction: column;
 
-  gap: 20px;
+  gap: 22px;
 
   transition:
     background 0.2s ease,
@@ -690,7 +663,7 @@ section > div {
 }
 
 .tech-card:hover {
-  background: #172033;
+  background: var(--dark-card-hover);
 
   transform: translateY(-3px);
 }
@@ -699,7 +672,6 @@ section > div {
   color: var(--text-muted);
 
   font-size: 11px;
-
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -716,7 +688,7 @@ section > div {
 .tech-list span {
   padding: 8px 12px;
 
-  border: 1px solid #334155;
+  border: 1px solid var(--dark-border);
 
   border-radius: 6px;
 
@@ -745,7 +717,6 @@ section > div {
 
 .projects-container {
   display: flex;
-
   flex-direction: column;
 
   gap: 56px;
@@ -793,7 +764,6 @@ section > div {
   padding: 32px;
 
   display: flex;
-
   flex-direction: column;
 
   justify-content: space-between;
@@ -820,7 +790,6 @@ section > div {
   color: var(--text-muted);
 
   font-size: 12px;
-
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -836,7 +805,6 @@ section > div {
   color: var(--accent);
 
   font-size: 11px;
-
   font-weight: 700;
 
   letter-spacing: 1.8px;
@@ -896,7 +864,6 @@ section > div {
   color: var(--text-primary);
 
   font-size: 13px;
-
   font-weight: 700;
 
   transition: color 0.2s ease;
@@ -907,7 +874,7 @@ section > div {
 }
 
 /* =========================================================
-   PROBLEM SOLVING
+   PROBLEM SOLVING JOURNAL
 ========================================================= */
 
 .problem-solving {
@@ -918,7 +885,6 @@ section > div {
 
 .problem-solving-container {
   display: flex;
-
   flex-direction: column;
 
   gap: 56px;
@@ -959,39 +925,49 @@ section > div {
 .problem-filters {
   display: flex;
 
-  flex-wrap: wrap;
+  gap: 14px;
 
-  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .problem-search,
 .problem-filter {
-  padding: 11px 14px;
+  min-height: 48px;
 
-  border: 1px solid #334155;
+  padding: 0 14px;
+
+  border: 1px solid var(--dark-border);
 
   border-radius: 7px;
 
-  background: #111a2e;
+  background: var(--dark-card);
 
   color: var(--text-light);
 
-  outline: none;
+  font-family: inherit;
 
-  font-size: 13px;
+  font-size: 14px;
+
+  outline: none;
 }
 
 .problem-search {
+  flex: 1;
+
   min-width: 240px;
 }
 
 .problem-search::placeholder {
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .problem-search:focus,
 .problem-filter:focus {
   border-color: #60a5fa;
+}
+
+.problem-filter {
+  cursor: pointer;
 }
 
 /* =========================================================
@@ -1007,9 +983,9 @@ section > div {
 }
 
 .problem-card {
-  border: 1px solid #334155;
+  border: 1px solid var(--dark-border);
 
-  background: #111a2e;
+  background: var(--dark-card);
 
   transition:
     transform 0.25s ease,
@@ -1033,7 +1009,7 @@ section > div {
 
   gap: 20px;
 
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid var(--dark-border);
 
   color: var(--text-muted);
 
@@ -1070,7 +1046,21 @@ section > div {
   letter-spacing: 2px;
 }
 
+.problem-platform-number {
+  margin: 6px 0 8px;
+
+  color: #60a5fa;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
 .problem-card h3 {
+  color: var(--text-light);
+
   font-size: 32px;
 
   line-height: 1.1;
@@ -1086,12 +1076,16 @@ section > div {
   line-height: 1.8;
 }
 
+/* =========================================================
+   PROBLEM APPROACH
+========================================================= */
+
 .problem-approach {
   display: grid;
 
   grid-template-columns: repeat(2, 1fr);
 
-  border-top: 1px solid #334155;
+  border-top: 1px solid var(--dark-border);
 }
 
 .problem-approach > div {
@@ -1099,7 +1093,7 @@ section > div {
 }
 
 .problem-approach > div + div {
-  border-left: 1px solid #334155;
+  border-left: 1px solid var(--dark-border);
 }
 
 .problem-approach span {
@@ -1124,6 +1118,10 @@ section > div {
   font-size: 14px;
 }
 
+/* =========================================================
+   PROBLEM FOOTER
+========================================================= */
+
 .problem-footer {
   padding: 16px 24px;
 
@@ -1133,13 +1131,580 @@ section > div {
 
   gap: 24px;
 
-  border-top: 1px solid #334155;
+  border-top: 1px solid var(--dark-border);
 
   color: var(--text-muted);
 
   font-size: 12px;
 
   font-weight: 600;
+}
+
+.problem-footer a:hover {
+  color: #60a5fa;
+}
+
+/* =========================================================
+   FULL PROBLEM JOURNAL PAGE
+========================================================= */
+
+.problem-journal-page {
+  min-height: 100vh;
+
+  background: var(--bg-dark);
+
+  color: var(--text-light);
+
+  padding: 120px 0 100px;
+}
+
+.problem-journal-container {
+  width: min(1180px, 90%);
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   PROBLEM JOURNAL HEADER
+========================================================= */
+
+.problem-journal-header {
+  max-width: 760px;
+
+  margin-bottom: 60px;
+}
+
+.problem-journal-header h1 {
+  margin: 14px 0 18px;
+
+  color: var(--text-light);
+
+  font-size: clamp(42px, 6vw, 72px);
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.problem-journal-header > p:last-child {
+  max-width: 680px;
+
+  color: var(--text-muted);
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   PROBLEM JOURNAL STATISTICS
+========================================================= */
+
+.problem-journal-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  border: 1px solid var(--dark-border);
+
+  margin-bottom: 50px;
+}
+
+.problem-journal-stats > div {
+  padding: 30px;
+
+  border-right: 1px solid var(--dark-border);
+}
+
+.problem-journal-stats > div:last-child {
+  border-right: none;
+}
+
+.problem-journal-stats span {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #60a5fa;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.problem-journal-stats strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 42px;
+
+  line-height: 1;
+}
+
+.problem-journal-stats p {
+  margin: 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   FULL JOURNAL FILTERS
+========================================================= */
+
+.problem-journal-page .problem-filters {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 1fr)
+    180px
+    180px
+    180px;
+
+  gap: 14px;
+
+  margin-bottom: 35px;
+}
+
+.problem-journal-page .problem-search,
+.problem-journal-page .problem-filter {
+  width: 100%;
+
+  min-height: 52px;
+
+  padding: 0 16px;
+
+  border: 1px solid var(--dark-border);
+
+  border-radius: 8px;
+
+  background: var(--dark-card);
+
+  color: var(--text-light);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.problem-journal-page .problem-search::placeholder {
+  color: var(--text-muted);
+}
+
+.problem-journal-page .problem-search:focus,
+.problem-journal-page .problem-filter:focus {
+  border-color: #60a5fa;
+}
+
+.problem-journal-page .problem-filter {
+  cursor: pointer;
+}
+
+/* =========================================================
+   FULL JOURNAL LIST
+========================================================= */
+
+.problem-journal-page .problem-list {
+  display: grid;
+
+  gap: 18px;
+}
+
+.problem-journal-page .problem-card-content h3,
+.problem-solving .problem-card-content h3 {
+  color: var(--text-light);
+}
+
+/* =========================================================
+   PROBLEM JOURNAL SUMMARY
+========================================================= */
+
+.problem-journal-summary {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin: 35px 0;
+}
+
+.problem-journal-summary span {
+  padding: 10px 16px;
+
+  border: 1px solid var(--dark-border);
+
+  border-radius: 999px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+/* =========================================================
+   PROBLEM JOURNAL PREVIEW
+========================================================= */
+
+.problem-journal-preview {
+  display: grid;
+
+  gap: 18px;
+}
+
+.problem-journal-cta {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 45px;
+}
+
+.problem-journal-cta .button {
+  text-decoration: none;
+}
+
+/* =========================================================
+   PROBLEM DETAILS
+========================================================= */
+
+.problem-details {
+  min-height: calc(100vh - 72px);
+
+  padding: 100px 24px;
+
+  background: var(--bg-dark);
+
+  color: var(--text-light);
+}
+
+.problem-details-container {
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   PROBLEM DETAILS HEADER
+========================================================= */
+
+.problem-details-header {
+  padding-bottom: 48px;
+
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.problem-details-header .section-label {
+  margin-bottom: 18px;
+
+  color: #60a5fa;
+}
+
+.problem-details-header h1 {
+  margin-bottom: 20px;
+
+  color: var(--text-light);
+
+  font-size: clamp(48px, 7vw, 76px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.problem-details-pattern {
+  display: inline-block;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--dark-border);
+
+  border-radius: 6px;
+
+  color: #cbd5e1;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   PROBLEM DETAILS NUMBERING
+========================================================= */
+
+.problem-details-journal-number {
+  margin: 14px 0 6px;
+
+  color: #60a5fa;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.problem-details-leetcode-number {
+  margin: 0 0 16px;
+
+  color: #aeb8cc !important;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.problem-title {
+  margin-top: 8px;
+
+  color: #f5f7ff !important;
+}
+
+/* =========================================================
+   PROBLEM DETAILS SECTIONS
+========================================================= */
+
+.problem-details-section {
+  padding: 48px 0;
+
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.problem-details-label {
+  margin-bottom: 18px;
+
+  color: #60a5fa;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.problem-details-section > p:not(.problem-details-label) {
+  max-width: 800px;
+
+  color: #cbd5e1;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   PROBLEM DETAILS CODE
+========================================================= */
+
+.problem-code-wrapper {
+  position: relative;
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--dark-border);
+
+  border-radius: 8px;
+
+  background: #020617;
+}
+
+.problem-code {
+  margin: 0;
+
+  padding: 28px;
+
+  overflow-x: auto;
+
+  color: #e2e8f0;
+
+  font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.problem-code code {
+  font-family: inherit;
+}
+
+/* =========================================================
+   COPY CODE BUTTON
+========================================================= */
+
+.copy-code-button {
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 2;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--dark-border);
+
+  border-radius: 6px;
+
+  background: var(--dark-card);
+
+  color: #cbd5e1;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.copy-code-button:hover {
+  background: var(--dark-card-hover);
+
+  border-color: #60a5fa;
+
+  color: #60a5fa;
+}
+
+/* =========================================================
+   PROBLEM COMPLEXITY
+========================================================= */
+
+.problem-details-complexity {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 32px;
+
+  margin-top: 20px;
+}
+
+.problem-details-complexity span {
+  color: var(--text-muted);
+
+  font-size: 13px;
+}
+
+.problem-details-complexity strong {
+  color: var(--text-light);
+}
+
+/* =========================================================
+   PROBLEM TAKEAWAY
+========================================================= */
+
+.problem-details-takeaway {
+  padding-bottom: 56px;
+}
+
+.problem-details-takeaway > p:last-child {
+  padding: 24px;
+
+  border-left: 2px solid #60a5fa;
+
+  background: var(--dark-card);
+
+  color: #e2e8f0;
+}
+
+/* =========================================================
+   PRACTICE ENTRY
+========================================================= */
+
+.problem-practice-info {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 32px;
+
+  border-top: 1px solid var(--dark-border);
+
+  border-left: 1px solid var(--dark-border);
+}
+
+.problem-practice-info > div {
+  padding: 24px;
+
+  border-right: 1px solid var(--dark-border);
+
+  border-bottom: 1px solid var(--dark-border);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.problem-practice-info span {
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.problem-practice-info strong {
+  color: var(--text-light);
+
+  font-size: 16px;
+}
+
+.problem-practice-note {
+  margin-top: 28px;
+
+  color: var(--text-muted) !important;
+
+  font-size: 14px !important;
+}
+
+/* =========================================================
+   PROBLEM BACK LINK
+========================================================= */
+
+.problem-details-back {
+  display: inline-flex;
+
+  margin-top: 36px;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.problem-details-back:hover {
+  color: #60a5fa;
+
+  transform: translateX(-4px);
 }
 
 /* =========================================================
@@ -1303,7 +1868,7 @@ section > div {
 }
 
 .contact-links {
-  border-top: 1px solid #334155;
+  border-top: 1px solid var(--dark-border);
 }
 
 .contact-links a {
@@ -1317,7 +1882,7 @@ section > div {
 
   padding: 22px 0;
 
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid var(--dark-border);
 
   color: var(--text-light);
 
@@ -1395,6 +1960,7 @@ section > div {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   background: var(--text-light);
@@ -1422,173 +1988,70 @@ section > div {
 }
 
 /* =========================================================
-   LAPTOP
-   1001px - 1366px
+   RESPONSIVE — TABLET / SMALL LAPTOP
 ========================================================= */
 
-@media (max-width: 1366px) and (min-width: 1001px) {
+@media (max-width: 1100px) {
   .hero {
-    padding: 45px 42px 50px;
+    padding: 44px 32px 50px;
   }
 
   .hero-container {
-    max-width: 1240px;
-
-    grid-template-columns:
-      minmax(0, 0.9fr)
-      minmax(0, 1.1fr);
-
-    column-gap: 30px;
+    column-gap: 32px;
   }
 
   .hero h1 {
-    font-size: clamp(52px, 5.4vw, 72px);
-
-    letter-spacing: -3px;
-  }
-
-  .hero-description {
-    font-size: 17px;
+    font-size: clamp(52px, 5.5vw, 72px);
   }
 
   .hero-visual {
-    width: min(590px, 100%);
-
     height: 570px;
   }
 
   .hero-image {
-    width: 100%;
-
     height: 570px;
   }
 
   .hero-values {
-    top: 210px;
-
-    right: 0;
+    top: 205px;
   }
 }
 
 /* =========================================================
-   SMALL LAPTOP
-   1001px - 1200px
+   RESPONSIVE — TABLET
 ========================================================= */
 
-@media (max-width: 1200px) and (min-width: 1001px) {
-  .navbar-container {
-    padding-left: 20px;
-
-    padding-right: 20px;
-
-    gap: 20px;
+@media (max-width: 900px) {
+  :root {
+    --section-padding: 80px;
   }
-
-  .navbar-links {
-    gap: 22px;
-  }
-
-  .hero {
-    padding-left: 32px;
-
-    padding-right: 32px;
-  }
-
-  .hero-container {
-    max-width: 1120px;
-
-    column-gap: 20px;
-  }
-
-  .hero h1 {
-    font-size: 58px;
-  }
-
-  .hero-visual {
-    width: min(540px, 100%);
-
-    height: 545px;
-  }
-
-  .hero-image {
-    width: 100%;
-
-    height: 545px;
-  }
-
-  .hero-values {
-    top: 200px;
-
-    right: 0;
-  }
-}
-
-/* =========================================================
-   TABLET
-   701px - 1000px
-========================================================= */
-
-@media (max-width: 1000px) and (min-width: 701px) {
-  /* NAVBAR */
-
-  .navbar-container {
-    min-height: 68px;
-
-    padding: 0 24px;
-
-    gap: 20px;
-  }
-
-  .navbar-links {
-    gap: 18px;
-  }
-
-  .navbar-links a {
-    font-size: 13px;
-  }
-
-  .navbar-resume {
-    padding: 9px 13px;
-
-    font-size: 13px;
-  }
-
-  /* HERO */
 
   .hero {
     min-height: auto;
 
-    padding: 55px 30px 45px;
+    padding: 60px 28px 70px;
   }
 
   .hero-container {
     grid-template-columns: 1fr;
 
-    row-gap: 25px;
+    gap: 40px;
   }
 
   .hero-content {
-    max-width: 760px;
+    max-width: 800px;
   }
 
   .hero h1 {
-    font-size: clamp(52px, 7vw, 68px);
-  }
-
-  .hero-description {
-    max-width: 650px;
-
-    font-size: 17px;
+    font-size: clamp(52px, 8vw, 72px);
   }
 
   .hero-side {
-    width: 100%;
-
     justify-content: center;
   }
 
   .hero-visual {
-    width: min(580px, 100%);
+    width: min(560px, 100%);
 
     height: 500px;
 
@@ -1596,195 +2059,140 @@ section > div {
   }
 
   .hero-image {
-    width: 100%;
-
     height: 500px;
-
-    left: 0;
-
-    top: 0;
-
-    object-fit: contain;
-
-    object-position: top center;
-
-    transform: none;
   }
 
   .hero-values {
     top: 185px;
-
-    right: 0;
-
-    gap: 19px;
-
-    padding-left: 15px;
   }
 
-  .hero-values p {
-    font-size: 10px;
+  .projects-heading,
+  .problem-solving-heading,
+  .learning-heading {
+    flex-direction: column;
 
-    letter-spacing: 3px;
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card-content {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+  .problem-journal-page {
+    padding: 100px 0 80px;
+  }
+
+  .problem-journal-page .problem-filters {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 /* =========================================================
-   MOBILE
-   431px - 700px
+   RESPONSIVE — MOBILE
 ========================================================= */
 
 @media (max-width: 700px) {
   :root {
-    --section-padding: 65px;
+    --section-padding: 72px;
   }
 
   section {
     padding-left: 18px;
-
     padding-right: 18px;
   }
 
-  /* =======================================================
-     NAVBAR MOBILE
-  ======================================================= */
+  /* Navbar */
 
   .navbar-container {
     min-height: 64px;
 
     padding: 0 18px;
-
-    gap: 12px;
   }
-
-  .navbar-logo {
-    width: 40px;
-
-    height: 40px;
-  }
-
-  /* Hide desktop navigation */
 
   .navbar-links {
     display: none;
   }
 
-  /* Hide desktop connect button */
-
   .navbar-resume {
     display: none;
   }
 
-  /* Show hamburger */
-
   .navbar-menu-button {
     display: flex;
-
-    margin-left: auto;
   }
-
-  /* Mobile menu */
 
   .navbar-mobile-menu {
     display: flex;
 
     flex-direction: column;
 
-    width: 100%;
-
     max-height: 0;
 
     overflow: hidden;
 
+    padding: 0 18px;
+
     background: rgba(248, 250, 252, 0.98);
 
-    border-top: 0 solid var(--border);
+    border-bottom: 0 solid var(--border);
 
     transition:
       max-height 0.3s ease,
+      padding 0.3s ease,
       border-color 0.3s ease;
   }
 
   .navbar-mobile-menu.open {
-    max-height: 500px;
+    max-height: 400px;
 
-    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    padding-bottom: 16px;
+
+    border-bottom: 1px solid var(--border);
   }
 
-  .navbar-mobile-menu > a {
-    display: block;
-
-    padding: 15px 20px;
+  .navbar-mobile-menu a {
+    padding: 12px 0;
 
     color: var(--text-secondary);
 
-    font-size: 15px;
+    font-size: 14px;
 
-    font-weight: 500;
-
-    border-bottom: 1px solid var(--border);
-
-    transition:
-      background 0.2s ease,
-      color 0.2s ease,
-      padding-left 0.2s ease;
+    font-weight: 600;
   }
 
-  .navbar-mobile-menu > a:hover {
-    background: var(--bg-secondary);
-
+  .navbar-mobile-menu a:hover {
     color: var(--text-primary);
-
-    padding-left: 26px;
   }
 
   .navbar-mobile-menu .mobile-connect {
-    margin: 14px 18px;
+    margin-top: 8px;
 
-    padding: 12px 16px;
-
-    border: none;
-
-    border-radius: 8px;
+    padding: 11px 14px;
 
     background: var(--accent);
 
     color: #ffffff;
 
+    border-radius: 7px;
+
     text-align: center;
-
-    font-weight: 600;
   }
 
-  .navbar-mobile-menu .mobile-connect:hover {
-    padding-left: 16px;
-
-    background: var(--accent-hover);
-
-    color: #ffffff;
-  }
-
-  /* =======================================================
-     HERO
-  ======================================================= */
+  /* Hero */
 
   .hero {
     min-height: auto;
 
-    padding: 42px 20px 30px;
-
-    overflow: hidden;
-  }
-
-  .hero-container {
-    grid-template-columns: 1fr;
-
-    row-gap: 22px;
-
-    width: 100%;
-  }
-
-  .hero-content {
-    max-width: 100%;
+    padding: 52px 18px 50px;
   }
 
   .hero-label {
@@ -1792,23 +2200,19 @@ section > div {
 
     font-size: 12px;
 
-    letter-spacing: 2.3px;
+    letter-spacing: 2.5px;
   }
 
   .hero h1 {
-    margin-bottom: 22px;
+    margin-bottom: 24px;
 
-    font-size: clamp(42px, 11.5vw, 62px);
-
-    line-height: 0.98;
+    font-size: clamp(44px, 13vw, 64px);
 
     letter-spacing: -2.5px;
   }
 
   .hero-description {
-    max-width: 100%;
-
-    margin-bottom: 25px;
+    margin-bottom: 26px;
 
     font-size: 16px;
 
@@ -1819,26 +2223,10 @@ section > div {
     gap: 12px;
   }
 
-  .button {
-    padding: 13px 18px;
-
-    font-size: 13px;
-  }
-
-  /* =======================================================
-     HERO IMAGE
-  ======================================================= */
-
-  .hero-side {
-    width: 100%;
-
-    justify-content: center;
-  }
-
   .hero-visual {
     width: 100%;
 
-    max-width: 540px;
+    max-width: 520px;
 
     height: 430px;
 
@@ -1846,24 +2234,8 @@ section > div {
   }
 
   .hero-image {
-    width: 100%;
-
     height: 430px;
-
-    left: 0;
-
-    top: 0;
-
-    object-fit: contain;
-
-    object-position: top center;
-
-    transform: none;
   }
-
-  /* =======================================================
-     BUILD / SOLVE / IMPROVE
-  ======================================================= */
 
   .hero-values {
     top: 158px;
@@ -1881,9 +2253,7 @@ section > div {
     letter-spacing: 2.5px;
   }
 
-  /* =======================================================
-     OTHER SECTIONS
-  ======================================================= */
+  /* Snapshot / Tech */
 
   .snapshot-grid,
   .tech-stack-grid {
@@ -1892,18 +2262,10 @@ section > div {
 
   .snapshot-card,
   .tech-card {
-    min-height: 145px;
+    min-height: 150px;
   }
 
-  .projects-heading,
-  .problem-solving-heading,
-  .learning-heading {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 20px;
-  }
+  /* Headings */
 
   .projects-heading h2,
   .problem-solving-heading h2,
@@ -1911,17 +2273,24 @@ section > div {
     font-size: clamp(40px, 12vw, 56px);
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+  /* Projects */
 
   .project-card {
-    min-height: 390px;
+    min-height: 400px;
   }
 
-  /* =======================================================
-     PROBLEM SOLVING MOBILE
-  ======================================================= */
+  /* Problem Solving */
+
+  .problem-filters {
+    flex-direction: column;
+  }
+
+  .problem-search,
+  .problem-filter {
+    width: 100%;
+
+    min-width: 0;
+  }
 
   .problem-card-top {
     padding: 16px 20px;
@@ -1948,7 +2317,7 @@ section > div {
   .problem-approach > div + div {
     border-left: none;
 
-    border-top: 1px solid #334155;
+    border-top: 1px solid var(--dark-border);
   }
 
   .problem-footer {
@@ -1959,15 +2328,89 @@ section > div {
     flex-wrap: wrap;
   }
 
-  .problem-search {
-    width: 100%;
+  /* Problem Details */
 
-    min-width: 0;
+  .problem-details {
+    padding: 70px 20px;
   }
 
-  /* =======================================================
-     LEARNING
-  ======================================================= */
+  .problem-details-header {
+    padding-bottom: 36px;
+  }
+
+  .problem-details-header h1 {
+    font-size: clamp(42px, 12vw, 58px);
+
+    letter-spacing: -2px;
+  }
+
+  .problem-details-section {
+    padding: 36px 0;
+  }
+
+  .problem-code {
+    padding: 22px;
+
+    font-size: 12px;
+  }
+
+  .problem-details-complexity {
+    gap: 18px;
+
+    flex-direction: column;
+  }
+
+  .problem-practice-info {
+    grid-template-columns: 1fr;
+  }
+
+  /* Full Problem Journal */
+
+  .problem-journal-page {
+    padding: 90px 0 70px;
+  }
+
+  .problem-journal-header {
+    margin-bottom: 40px;
+  }
+
+  .problem-journal-header h1 {
+    font-size: 46px;
+  }
+
+  .problem-journal-header > p:last-child {
+    font-size: 16px;
+  }
+
+  .problem-journal-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-journal-stats > div {
+    border-right: none;
+
+    border-bottom: 1px solid var(--dark-border);
+  }
+
+  .problem-journal-stats > div:last-child {
+    border-bottom: none;
+  }
+
+  .problem-journal-page .problem-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-journal-summary {
+    gap: 8px;
+  }
+
+  .problem-journal-summary span {
+    padding: 8px 12px;
+
+    font-size: 12px;
+  }
+
+  /* Learning */
 
   .learning-item {
     grid-template-columns: 1fr;
@@ -1983,9 +2426,7 @@ section > div {
     gap: 10px;
   }
 
-  /* =======================================================
-     CONTACT
-  ======================================================= */
+  /* Contact */
 
   .contact-heading h2 {
     font-size: clamp(44px, 12vw, 64px);
@@ -1997,9 +2438,7 @@ section > div {
     font-size: 16px;
   }
 
-  /* =======================================================
-     FOOTER
-  ======================================================= */
+  /* Footer */
 
   .footer {
     padding: 24px 18px;
@@ -2015,22 +2454,16 @@ section > div {
 }
 
 /* =========================================================
-   SMALL MOBILE
-   430px and below
+   RESPONSIVE — SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 430px) {
-  /* =======================================================
-     NAVBAR
-  ======================================================= */
-
   .navbar-container {
     padding: 0 16px;
   }
 
   .navbar-logo {
     width: 39px;
-
     height: 39px;
 
     font-size: 15px;
@@ -2038,13 +2471,10 @@ section > div {
 
   .navbar-menu-button {
     width: 40px;
-
     height: 40px;
   }
 
-  /* =======================================================
-     HERO
-  ======================================================= */
+  /* Hero */
 
   .hero {
     padding: 38px 18px 25px;
@@ -2086,9 +2516,7 @@ section > div {
     width: 100%;
   }
 
-  /* =======================================================
-     SMALL MOBILE IMAGE
-  ======================================================= */
+  /* Hero Image */
 
   .hero-visual {
     width: 100%;
@@ -2101,18 +2529,12 @@ section > div {
   }
 
   .hero-image {
-    width: 100%;
-
     height: 370px;
 
     object-fit: contain;
 
     object-position: top center;
   }
-
-  /* =======================================================
-     VALUES
-  ======================================================= */
 
   .hero-values {
     top: 138px;
@@ -2130,9 +2552,7 @@ section > div {
     letter-spacing: 2px;
   }
 
-  /* =======================================================
-     PROJECTS
-  ======================================================= */
+  /* Projects */
 
   .project-card {
     min-height: 360px;
@@ -2144,14 +2564,72 @@ section > div {
     margin: 40px 0;
   }
 
-  /* =======================================================
-     CONTACT
-  ======================================================= */
+  /* Problem Details */
+
+  .problem-details {
+    padding: 55px 18px;
+  }
+
+  .problem-details-header h1 {
+    font-size: clamp(40px, 12vw, 52px);
+
+    letter-spacing: -2px;
+  }
+
+  .problem-details-section {
+    padding: 32px 0;
+  }
+
+  .problem-code-wrapper {
+    border-radius: 6px;
+  }
+
+  .problem-code {
+    padding: 20px 16px;
+
+    font-size: 11px;
+
+    line-height: 1.65;
+  }
+
+  .copy-code-button {
+    top: 10px;
+
+    right: 10px;
+
+    padding: 7px 10px;
+
+    font-size: 10px;
+  }
+
+  .problem-details-takeaway > p:last-child {
+    padding: 20px;
+  }
+
+  .problem-practice-info > div {
+    padding: 20px;
+  }
+
+  /* Contact */
 
   .contact-heading h2 {
     font-size: clamp(40px, 12vw, 54px);
 
     letter-spacing: -2px;
+  }
+
+  /* Full Journal */
+
+  .problem-journal-page {
+    padding: 80px 0 60px;
+  }
+
+  .problem-journal-header h1 {
+    font-size: 38px;
+  }
+
+  .problem-journal-stats strong {
+    font-size: 34px;
   }
 }
 
@@ -2168,7 +2646,9 @@ section > div {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
   }
 }
@@ -2184,4 +2664,28 @@ select:focus-visible {
   outline: 2px solid var(--accent);
 
   outline-offset: 3px;
+}
+/* =========================================================
+   PROBLEM JOURNAL HOME LINK
+========================================================= */
+
+.problem-journal-home {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 36px;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.problem-journal-home:hover {
+  color: #60a5fa;
+  transform: translateX(-4px);
 }

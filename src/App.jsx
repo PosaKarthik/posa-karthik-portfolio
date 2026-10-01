@@ -9,6 +9,7 @@ import ProblemSolving from "./components/ProblemSolving";
 import LearningJourney from "./components/LearningJourney";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Problems from "./pages/Problems";
 
 import ProblemDetails from "./pages/ProblemDetails";
 
@@ -34,9 +35,10 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter basename="/posa-karthik-portfolio">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/problems" element={<Problems />} />
 
         <Route path="/problems/:id" element={<ProblemDetails />} />
       </Routes>
