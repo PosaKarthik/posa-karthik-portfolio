@@ -7,6 +7,16 @@ function ProblemSolving() {
     .map((id) => problems.find((problem) => problem.id === id))
     .filter(Boolean);
 
+  const leetCodeCount = problems.filter(
+    (problem) => problem.platform === "LeetCode",
+  ).length;
+
+  const dsaPracticeCount = problems.filter(
+    (problem) => problem.platform === "DSA Practice",
+  ).length;
+
+  const totalProblems = problems.length;
+
   return (
     <section id="problems" className="problem-solving">
       <div className="problem-solving-container">
@@ -24,9 +34,9 @@ function ProblemSolving() {
         </div>
 
         <div className="problem-journal-summary">
-          <span>22 LeetCode</span>
-          <span>23 DSA Practice</span>
-          <span>45 Problem Entries</span>
+          <span>{leetCodeCount} LeetCode</span>
+          <span>{dsaPracticeCount} DSA Practice</span>
+          <span>{totalProblems} Problem Entries</span>
         </div>
 
         <div className="problem-journal-preview">
@@ -58,6 +68,7 @@ function ProblemSolving() {
                     : problem.problem}
                 </p>
               </div>
+
               <div className="problem-approach">
                 <div>
                   <span>PATTERN</span>

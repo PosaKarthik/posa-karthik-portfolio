@@ -7,6 +7,16 @@ function Problems() {
   const [pattern, setPattern] = useState("All");
   const [platform, setPlatform] = useState("All");
 
+  const leetCodeCount = problems.filter(
+    (problem) => problem.platform === "LeetCode",
+  ).length;
+
+  const dsaPracticeCount = problems.filter(
+    (problem) => problem.platform === "DSA Practice",
+  ).length;
+
+  const totalProblems = problems.length;
+
   const filteredProblems = problems.filter((problem) => {
     const matchesSearch = problem.title
       .toLowerCase()
@@ -49,19 +59,19 @@ function Problems() {
         <div className="problem-journal-stats">
           <div>
             <span>LEETCODE</span>
-            <strong>22</strong>
+            <strong>{leetCodeCount}</strong>
             <p>Problems Solved</p>
           </div>
 
           <div>
             <span>DSA PRACTICE</span>
-            <strong>23</strong>
-            <p>Array Problems</p>
+            <strong>{dsaPracticeCount}</strong>
+            <p>Problems Solved</p>
           </div>
 
           <div>
             <span>TOTAL</span>
-            <strong>45</strong>
+            <strong>{totalProblems}</strong>
             <p>Problem Entries</p>
           </div>
         </div>
@@ -115,6 +125,7 @@ function Problems() {
                 <span>{problem.platform}</span>
                 <span>{problem.difficulty}</span>
               </div>
+
               <div className="problem-card-content">
                 <div>
                   <p className="problem-number">
