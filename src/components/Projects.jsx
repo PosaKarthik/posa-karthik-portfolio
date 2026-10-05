@@ -20,14 +20,40 @@ function Projects() {
         <div className="projects-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.id}>
-              <div className="project-number">0{project.id}</div>
+              <div className="project-number">
+                {String(project.id).padStart(2, "0")}
+              </div>
 
               <div className="project-content">
-                <p className="project-type">{project.type}</p>
+                <div className="project-meta">
+                  <p className="project-type">{project.type}</p>
+
+                  <span className="project-status">{project.status}</span>
+                </div>
 
                 <h3>{project.title}</h3>
 
                 <p className="project-description">{project.description}</p>
+
+                {project.problem && (
+                  <div className="project-problem">
+                    <span>WHAT I BUILT IT FOR</span>
+
+                    <p>{project.problem}</p>
+                  </div>
+                )}
+
+                {project.features && (
+                  <div className="project-features">
+                    <span>KEY FEATURES</span>
+
+                    <ul>
+                      {project.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <div className="project-technologies">
                   {project.technologies.map((technology) => (
