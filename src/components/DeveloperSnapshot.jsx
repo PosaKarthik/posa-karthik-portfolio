@@ -5,7 +5,11 @@ function DeveloperSnapshot() {
         <div className="snapshot-heading">
           <p className="section-label">PROFESSIONAL SNAPSHOT</p>
 
-          <h2>Building my foundation. Creating real-world applications.</h2>
+          <h2>
+            Building my foundation.
+            <br />
+            Creating real-world applications.
+          </h2>
         </div>
 
         <div className="snapshot-grid">
@@ -25,8 +29,8 @@ function DeveloperSnapshot() {
           </article>
 
           <article className="snapshot-card">
-            <p>CURRENT DIRECTION</p>
-            <h3>Building Real-World Applications</h3>
+            <p>BUILDING TOWARD</p>
+            <h3>Real-World Software</h3>
           </article>
         </div>
       </div>

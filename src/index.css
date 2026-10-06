@@ -530,15 +530,17 @@ section > div {
 }
 
 .snapshot-heading {
-  max-width: 650px;
+  max-width: 720px;
 }
 
 .snapshot-heading h2 {
-  font-size: clamp(32px, 4vw, 52px);
+  max-width: 700px;
 
-  line-height: 1.1;
+  font-size: clamp(36px, 4.5vw, 58px);
 
-  letter-spacing: -2px;
+  line-height: 1.05;
+
+  letter-spacing: -2.5px;
 }
 
 .snapshot-grid {
@@ -551,7 +553,7 @@ section > div {
 }
 
 .snapshot-card {
-  min-height: 180px;
+  min-height: 190px;
 
   padding: 32px;
 
@@ -559,6 +561,7 @@ section > div {
   border-bottom: 1px solid var(--border);
 
   display: flex;
+
   flex-direction: column;
 
   justify-content: space-between;
@@ -566,14 +569,17 @@ section > div {
   background: var(--bg-primary);
 
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .snapshot-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
 
   background: var(--bg-secondary);
+
+  border-color: #cbd5e1;
 }
 
 .snapshot-card p {
@@ -586,13 +592,13 @@ section > div {
 }
 
 .snapshot-card h3 {
-  max-width: 300px;
+  max-width: 340px;
 
-  font-size: 22px;
+  font-size: 23px;
 
   line-height: 1.3;
 
-  letter-spacing: -0.5px;
+  letter-spacing: -0.6px;
 }
 
 /* =========================================================
@@ -607,6 +613,7 @@ section > div {
 
 .tech-stack-container {
   display: flex;
+
   flex-direction: column;
 
   gap: 56px;
@@ -654,6 +661,7 @@ section > div {
   border-bottom: 1px solid var(--dark-border);
 
   display: flex;
+
   flex-direction: column;
 
   gap: 22px;
@@ -718,47 +726,63 @@ section > div {
 
 .projects-container {
   display: flex;
+
   flex-direction: column;
+
   gap: 56px;
 }
 
 .projects-heading {
   display: flex;
+
   align-items: flex-end;
+
   justify-content: space-between;
+
   gap: 48px;
 }
 
 .projects-heading h2 {
   font-size: clamp(40px, 5vw, 64px);
+
   line-height: 1;
+
   letter-spacing: -2.5px;
 }
 
 .projects-heading > p {
   max-width: 480px;
+
   color: var(--text-secondary);
+
   font-size: 16px;
+
   line-height: 1.8;
 }
 
 .projects-grid {
   width: min(100%, 1120px);
+
   margin: 0 auto;
 
   display: grid;
+
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
   gap: 28px;
 }
 
 .project-card {
   min-height: 0;
+
   padding: 36px;
 
   display: flex;
+
   flex-direction: column;
 
   border: 1px solid var(--border);
+
   background: var(--bg-secondary);
 
   transition:
@@ -798,6 +822,7 @@ section > div {
   display: flex;
 
   align-items: center;
+
   justify-content: space-between;
 
   gap: 16px;
@@ -935,7 +960,6 @@ section > div {
   color: var(--text-primary);
 
   font-size: 13px;
-
   font-weight: 700;
 
   transition: color 0.2s ease;
@@ -957,6 +981,7 @@ section > div {
 
 .problem-solving-container {
   display: flex;
+
   flex-direction: column;
 
   gap: 56px;
@@ -2349,6 +2374,7 @@ section > div {
 
   .project-card {
     min-height: 0;
+
     padding: 28px;
   }
 
@@ -2366,6 +2392,7 @@ section > div {
 
   .project-technologies {
     margin-top: 26px;
+
     padding-top: 20px;
   }
 
@@ -2599,8 +2626,6 @@ section > div {
   }
 
   .hero-actions {
-    width: 100%;
-
     flex-direction: column;
 
     align-items: stretch;
@@ -2610,34 +2635,18 @@ section > div {
     width: 100%;
   }
 
-  /* Hero Image */
-
   .hero-visual {
-    width: 100%;
-
-    max-width: 380px;
-
     height: 370px;
-
-    margin: 0 auto;
   }
 
   .hero-image {
     height: 370px;
-
-    object-fit: contain;
-
-    object-position: top center;
   }
 
   .hero-values {
-    top: 138px;
+    top: 135px;
 
-    right: 0;
-
-    gap: 15px;
-
-    padding-left: 10px;
+    gap: 14px;
   }
 
   .hero-values p {
@@ -2646,20 +2655,50 @@ section > div {
     letter-spacing: 2px;
   }
 
+  /* Snapshot */
+
+  .snapshot-container {
+    gap: 40px;
+  }
+
+  .snapshot-heading h2 {
+    font-size: clamp(34px, 11vw, 48px);
+
+    letter-spacing: -2px;
+  }
+
+  .snapshot-card {
+    min-height: 150px;
+
+    padding: 24px;
+  }
+
+  .snapshot-card h3 {
+    font-size: 20px;
+  }
+
+  /* Tech */
+
+  .tech-stack-container {
+    gap: 40px;
+  }
+
+  .tech-stack-heading h2 {
+    font-size: clamp(36px, 11vw, 50px);
+  }
+
+  .tech-card {
+    padding: 24px;
+  }
+
   /* Projects */
 
   .project-card {
-    min-height: 0;
-
     padding: 24px;
   }
 
   .project-number {
     margin-bottom: 28px;
-  }
-
-  .project-content {
-    margin: 0;
   }
 
   .project-meta {
@@ -2670,59 +2709,25 @@ section > div {
     gap: 8px;
   }
 
-  /* Problem Details */
-
-  .problem-details {
-    padding: 55px 18px;
+  .project-card h3 {
+    font-size: 28px;
   }
 
-  .problem-details-header h1 {
-    font-size: clamp(40px, 12vw, 52px);
+  /* Problem Solving */
 
-    letter-spacing: -2px;
-  }
-
-  .problem-details-section {
-    padding: 32px 0;
-  }
-
-  .problem-code-wrapper {
-    border-radius: 6px;
-  }
-
-  .problem-code {
-    padding: 20px 16px;
-
-    font-size: 11px;
-
-    line-height: 1.65;
-  }
-
-  .copy-code-button {
-    top: 10px;
-
-    right: 10px;
-
-    padding: 7px 10px;
-
-    font-size: 10px;
-  }
-
-  .problem-details-takeaway > p:last-child {
-    padding: 20px;
-  }
-
-  .problem-practice-info > div {
-    padding: 20px;
+  .problem-card h3 {
+    font-size: 28px;
   }
 
   /* Contact */
 
-  .contact-heading h2 {
-    font-size: clamp(42px, 12vw, 58px);
+  .contact-container {
+    gap: 48px;
   }
 
   .contact-links a {
-    font-size: 15px;
+    gap: 16px;
+
+    padding: 18px 0;
   }
 }
