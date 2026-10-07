@@ -1,37 +1,38 @@
 import projects from "../data/projects";
 
-function Projects() {
-  const featuredProjects = projects.slice(0, 4);
-
+function AllProjects() {
   return (
-    <section id="work" className="projects">
-      <div className="projects-container">
-        <div className="projects-heading">
-          <div>
-            <p className="section-label">THINGS I'VE SHIPPED</p>
-            <h2>Projects</h2>
-          </div>
+    <section className="all-projects">
+      <div className="all-projects-container">
+        <div className="all-projects-heading">
+          <p className="section-label">ALL PROJECTS</p>
+
+          <h1>
+            Things I've
+            <br />
+            built so far.
+          </h1>
 
           <p>
-            Real applications I've built while learning, experimenting, and
-            turning ideas into working software.
+            A collection of applications I've built while learning,
+            experimenting, and turning ideas into working software.
           </p>
         </div>
 
-        <div className="projects-grid">
-          {featuredProjects.map((project) => (
-            <article className="project-card" key={project.id}>
-              <div className="project-number">
+        <div className="all-projects-grid">
+          {projects.map((project) => (
+            <article className="all-project-card" key={project.id}>
+              <div className="all-project-number">
                 {String(project.id).padStart(2, "0")}
               </div>
 
-              <div className="project-content">
+              <div className="all-project-content">
                 <div className="project-meta">
                   <p className="project-type">{project.type}</p>
                   <span className="project-status">{project.status}</span>
                 </div>
 
-                <h3>{project.title}</h3>
+                <h2>{project.title}</h2>
 
                 <p className="project-description">{project.description}</p>
 
@@ -84,17 +85,12 @@ function Projects() {
           ))}
         </div>
 
-        <div className="projects-cta">
-          <a
-            href={`${import.meta.env.BASE_URL}projects`}
-            className="button button-secondary"
-          >
-            View All Projects →
-          </a>
+        <div className="all-projects-back">
+          <a href={import.meta.env.BASE_URL}>← Back to Home</a>
         </div>
       </div>
     </section>
   );
 }
 
-export default Projects;
+export default AllProjects;

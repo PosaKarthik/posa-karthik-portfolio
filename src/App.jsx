@@ -10,6 +10,7 @@ import LearningJourney from "./components/LearningJourney";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Problems from "./pages/Problems";
+import AllProjects from "./pages/AllProjects";
 
 import ProblemDetails from "./pages/ProblemDetails";
 
@@ -38,8 +39,8 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
         <Route path="/problems" element={<Problems />} />
-
         <Route path="/problems/:id" element={<ProblemDetails />} />
       </Routes>
     </BrowserRouter>

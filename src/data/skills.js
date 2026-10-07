@@ -19,7 +19,7 @@ const skills = [
   },
   {
     category: "Databases",
-    technologies: ["MySQL", "PostgreSQL", "MongoDB"],
+    technologies: ["MySQL", "MongoDB"],
   },
   {
     category: "Tools",
