@@ -1,20 +1,21 @@
 const learning = [
   {
-    title: "React",
+    title: "TypeScript",
     status: "Currently Learning",
     description:
-      "Building interactive interfaces and learning component-based development.",
+      "Learning type-safe development and strengthening my React development with TypeScript.",
   },
   {
-    title: "TypeScript",
+    title: "System Design",
     status: "Next",
-    description: "Planning to strengthen my React development with TypeScript.",
+    description:
+      "Learning how to design scalable, maintainable, and real-world software systems.",
   },
   {
     title: "DSA",
-    status: "Practicing",
+    status: "Ongoing",
     description:
-      "Solving problems regularly and improving pattern recognition and optimization.",
+      "Solving problems regularly and improving pattern recognition, optimization, and problem-solving skills.",
   },
 ];
 
