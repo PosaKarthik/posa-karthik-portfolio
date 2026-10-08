@@ -1516,249 +1516,1378 @@ return prev + 1;`,
     takeaway:
       "A sorted array often lets two pointers remove duplicates in place without extra memory.",
   },
-  // ============================================================
+
   // DSA PRACTICE
+
   // JOURNAL #25 - #48
+
   // ============================================================
 
   {
     id: 25,
-    title: "Largest Element in an Array",
+    title: "Largest Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 1,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem: "Given an integer array, find the largest element in the array.",
+
+    bruteForce: {
+      explanation:
+        "Sort the array and take the last element as the largest value.",
+      code: `Arrays.sort(array);
+int largest = array[array.length - 1];`,
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Scan the array once while keeping track of the largest value seen so far.",
+      code: `int largestElement = array[0];
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] > largestElement) {
+        largestElement = array[i];
+    }
+}
+
+System.out.println(largestElement);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I start with the first element as the largest and replace it whenever I find a bigger value.",
+
+    takeaway:
+      "A single traversal is enough when the problem only asks for the maximum value.",
   },
 
   {
     id: 26,
-    title: "Smallest Element in an Array",
+    title: "Smallest Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 2,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem: "Given an integer array, find the smallest element in the array.",
+
+    bruteForce: {
+      explanation:
+        "Sort the array and take the first element as the smallest value.",
+      code: `Arrays.sort(array);
+int smallest = array[0];`,
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Scan the array once while keeping track of the smallest value seen so far.",
+      code: `int smallestElement = array[0];
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] < smallestElement) {
+        smallestElement = array[i];
+    }
+}
+
+System.out.println(smallestElement);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I start with the first element as the smallest and replace it whenever I find a smaller value.",
+
+    takeaway:
+      "For minimum or maximum problems, a running best value avoids unnecessary sorting.",
   },
 
   {
     id: 27,
     title: "Second Largest Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 3,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the second largest distinct element. If it does not exist, report that it does not exist.",
+
+    bruteForce: {
+      explanation:
+        "Sort the array and scan from the end to find the largest value and then the next distinct value.",
+      code: `Arrays.sort(array);
+
+int largest = array[array.length - 1];
+int secondLargest = Integer.MIN_VALUE;
+
+for (int i = array.length - 2; i >= 0; i--) {
+    if (array[i] != largest) {
+        secondLargest = array[i];
+        break;
+    }
+}`,
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Maintain the largest and second-largest distinct values in one traversal.",
+      code: `int largestElement = array[0];
+int secondLargestElement = Integer.MIN_VALUE;
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] > largestElement) {
+        secondLargestElement = largestElement;
+        largestElement = array[i];
+    } else if (array[i] > secondLargestElement
+            && array[i] != largestElement) {
+        secondLargestElement = array[i];
+    }
+}
+
+if (secondLargestElement == Integer.MIN_VALUE) {
+    System.out.println("Second largest element does not exist");
+} else {
+    System.out.println(secondLargestElement);
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I keep the largest value and update the second-largest value whenever a new candidate appears without duplicating the largest value.",
+
+    takeaway:
+      "Tracking the top two values in one pass avoids sorting the entire array.",
   },
 
   {
     id: 28,
     title: "Second Smallest Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 4,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the second smallest distinct element. If it does not exist, report that it does not exist.",
+
+    bruteForce: {
+      explanation:
+        "Sort the array and scan from the beginning to find the smallest value and then the next distinct value.",
+      code: `Arrays.sort(array);
+
+int smallest = array[0];
+int secondSmallest = Integer.MAX_VALUE;
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] != smallest) {
+        secondSmallest = array[i];
+        break;
+    }
+}`,
+      timeComplexity: "O(n log n)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Maintain the smallest and second-smallest distinct values in one traversal.",
+      code: `int smallestElement = array[0];
+int secondSmallestElement = Integer.MAX_VALUE;
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] < smallestElement) {
+        secondSmallestElement = smallestElement;
+        smallestElement = array[i];
+    } else if (array[i] < secondSmallestElement
+            && array[i] != smallestElement) {
+        secondSmallestElement = array[i];
+    }
+}
+
+if (secondSmallestElement == Integer.MAX_VALUE) {
+    System.out.println("Second smallest element does not exist.");
+} else {
+    System.out.println(secondSmallestElement);
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I keep the smallest value and update the second-smallest value whenever a smaller distinct candidate is found.",
+
+    takeaway:
+      "Two running values can replace sorting when only the smallest two distinct elements are needed.",
   },
 
   {
     id: 29,
     title: "Sum of Array Elements",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 5,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem: "Given an integer array, find the sum of all elements.",
+
+    bruteForce: {
+      explanation:
+        "Traverse the array and accumulate every element into a running sum.",
+      code: `int sum = 0;
+
+for (int value : array) {
+    sum += value;
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "The direct traversal is already optimal because every element must be read.",
+      code: `int sum = 0;
+
+for (int i = 0; i < array.length; i++) {
+    sum += array[i];
+}
+
+System.out.println(sum);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "Every array element contributes to the final sum, so one traversal is sufficient.",
+
+    takeaway:
+      "When every element contributes directly to an aggregate result, a single traversal is optimal.",
   },
 
   {
     id: 30,
     title: "Average of Array Elements",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 6,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem: "Given an integer array, calculate the average of all elements.",
+
+    bruteForce: {
+      explanation:
+        "Traverse the array to calculate the total sum and divide it by the number of elements.",
+      code: `int sum = 0;
+
+for (int value : array) {
+    sum += value;
+}
+
+double average = (double) sum / array.length;`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Calculate the sum in one traversal and use a double cast before division to avoid integer division.",
+      code: `int sum = 0;
+
+for (int value : array) {
+    sum += value;
+}
+
+double averageOfArrayElements =
+        (double) sum / array.length;
+
+System.out.printf(
+        "Average of Array Elements : %.2f",
+        averageOfArrayElements
+);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I calculate the sum once and divide by the array length. Casting the sum to double preserves the decimal part of the average.",
+
+    takeaway:
+      "Be careful with integer division when a problem requires a decimal result.",
   },
 
   {
     id: 31,
     title: "Count Even and Odd Numbers",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 7,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, count how many elements are even and how many are odd.",
+
+    bruteForce: {
+      explanation:
+        "Traverse the array and use the modulo operator to classify each value as even or odd.",
+      code: `int evenCount = 0;
+int oddCount = 0;
+
+for (int value : array) {
+    if (value % 2 == 0) {
+        evenCount++;
+    } else {
+        oddCount++;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "The direct classification in one traversal is already optimal.",
+      code: `int evenCount = 0;
+int oddCount = 0;
+
+for (int element : array) {
+    if (element % 2 == 0) {
+        evenCount++;
+    } else {
+        oddCount++;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "The remainder after division by 2 immediately tells whether each number is even or odd.",
+
+    takeaway:
+      "Modulo is a simple and useful tool for classifying integers by divisibility.",
   },
 
   {
     id: 32,
-    title: "Count Positive, Negative & Zero Elements",
+    title: "Count Positive, Negative & Zero",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 8,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, count the positive numbers, negative numbers, and zero values.",
+
+    bruteForce: {
+      explanation:
+        "Traverse the array and classify each number into one of the three categories.",
+      code: `int positiveCount = 0;
+int negativeCount = 0;
+int zeroCount = 0;
+
+for (int number : array) {
+    if (number > 0) {
+        positiveCount++;
+    } else if (number < 0) {
+        negativeCount++;
+    } else {
+        zeroCount++;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation: "A single traversal with three counters is already optimal.",
+      code: `int positiveCount = 0;
+int negativeCount = 0;
+int zeroCount = 0;
+
+for (int number : array) {
+    if (number > 0) {
+        positiveCount++;
+    } else if (number < 0) {
+        negativeCount++;
+    } else {
+        zeroCount++;
+    }`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "Every element belongs to exactly one of the three categories, so I increment the corresponding counter.",
+
+    takeaway:
+      "Multiple counters can efficiently classify values during a single array traversal.",
   },
 
   {
     id: 33,
     title: "Reverse an Array",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 9,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Two Pointers",
+    type: "Documented",
+
+    problem: "Given an integer array, reverse the array in place.",
+
+    bruteForce: {
+      explanation:
+        "Create another array and copy the original values in reverse order.",
+      code: `int[] result = new int[array.length];
+
+for (int i = 0; i < array.length; i++) {
+    result[i] = array[array.length - 1 - i];
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(n)",
+    },
+
+    optimal: {
+      explanation:
+        "Use two pointers at the beginning and end of the array and swap values while moving toward the center.",
+      code: `int i = 0;
+int j = array.length - 1;
+
+while (i < j) {
+    int current = array[i];
+    array[i] = array[j];
+    array[j] = current;
+
+    i++;
+    j--;
+}
+
+System.out.println(Arrays.toString(array));`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "The first element swaps with the last, the second with the second-last, and so on until the pointers meet.",
+
+    takeaway:
+      "Two pointers can reverse an array in place without requiring another array.",
   },
 
   {
     id: 34,
-    title: "Frequency of Elements",
+    title: "Frequency of Array Elements",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 10,
     difficulty: "Practice",
     pattern: "HashMap",
-    type: "Practice",
+    type: "Documented",
+
+    problem: "Given an integer array, find the frequency of each element.",
+
+    bruteForce: {
+      explanation:
+        "For each element, count matching values by scanning the array again.",
+      code: `for (int i = 0; i < array.length; i++) {
+    int count = 0;
+
+    for (int j = 0; j < array.length; j++) {
+        if (array[i] == array[j]) {
+            count++;
+        }
+    }
+
+    System.out.println(array[i] + " -> " + count);
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Use a HashMap to store each element as a key and its frequency as the value.",
+      code: `HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+for (int i = 0; i < array.length; i++) {
+    hashMap.put(
+        array[i],
+        hashMap.getOrDefault(array[i], 0) + 1
+    );
+}
+
+for (Map.Entry<Integer, Integer> entry
+        : hashMap.entrySet()) {
+    System.out.println(
+        entry.getKey() + " -> " + entry.getValue()
+    );
+}`,
+      timeComplexity: "O(n) average",
+      spaceComplexity: "O(n)",
+    },
+
+    reasoning:
+      "The HashMap lets me increment the count of an element whenever I encounter it, avoiding repeated full-array scans.",
+
+    takeaway:
+      "Frequency problems are a natural fit for HashMap key-value counting.",
   },
 
   {
     id: 35,
     title: "Find Duplicate Elements",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 11,
     difficulty: "Practice",
-    pattern: "HashSet",
-    type: "Practice",
+    pattern: "HashMap",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the elements that appear more than once.",
+
+    bruteForce: {
+      explanation:
+        "Compare every pair of elements and identify values that occur more than once.",
+      code: `for (int i = 0; i < array.length; i++) {
+    for (int j = i + 1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+            System.out.println(array[i]);
+            break;
+        }
+    }
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1) auxiliary",
+    },
+
+    optimal: {
+      explanation:
+        "Count each value with a HashMap and print values whose frequency is greater than one.",
+      code: `HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+for (int i = 0; i < array.length; i++) {
+    hashMap.put(
+        array[i],
+        hashMap.getOrDefault(array[i], 0) + 1
+    );
+}
+
+for (int key : hashMap.keySet()) {
+    if (hashMap.get(key) > 1) {
+        System.out.println(key);
+    }
+}`,
+      timeComplexity: "O(n) average",
+      spaceComplexity: "O(n)",
+    },
+
+    reasoning:
+      "The frequency map records how many times each value occurs. Any value with a count greater than one is a duplicate.",
+
+    takeaway:
+      "Counting frequencies is useful when duplicates must be identified without repeatedly comparing every pair.",
   },
 
   {
     id: 36,
     title: "Move Zeroes",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 12,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Two Pointers",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, move all zeroes to the end while preserving the relative order of the non-zero elements.",
+
+    bruteForce: {
+      explanation:
+        "Create another array, place non-zero elements first, and leave the remaining positions as zero.",
+      code: `int[] result = new int[array.length];
+int index = 0;
+
+for (int value : array) {
+    if (value != 0) {
+        result[index++] = value;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(n)",
+    },
+
+    optimal: {
+      explanation:
+        "Use a two-pointer approach. j marks the next position for a non-zero value.",
+      code: `int j = 0;
+
+for (int i = 0; i < array.length; i++) {
+    if (array[i] != 0) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        j++;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "The pointer j represents the next available position for a non-zero value, while i scans the array.",
+
+    takeaway:
+      "Two pointers can move selected elements in place while preserving their relative order.",
   },
 
   {
     id: 37,
     title: "Missing Number",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 13,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Bit Manipulation",
+    type: "Documented",
+
+    problem:
+      "Given an array containing n distinct numbers from 0 to n, find the one missing number.",
+
+    bruteForce: {
+      explanation:
+        "Calculate the expected sum from 0 to n and subtract the actual array sum.",
+      code: `int n = array.length;
+int expected = n * (n + 1) / 2;
+int actual = 0;
+
+for (int value : array) {
+    actual += value;
+}
+
+int missing = expected - actual;`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation: "Use XOR because equal values cancel each other.",
+      code: `int n = array.length;
+int result = n;
+
+for (int i = 0; i < array.length; i++) {
+    result ^= i;
+    result ^= array[i];
+}
+
+System.out.println(result);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "XOR cancels every number that appears twice, leaving only the missing value.",
+
+    takeaway:
+      "XOR can solve missing-number problems in linear time and constant extra space.",
   },
 
   {
     id: 38,
-    title: "Find Maximum Difference",
+    title: "Common Elements",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 14,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "HashMap",
+    type: "Documented",
+
+    problem:
+      "Given two integer arrays, find their common elements while respecting duplicate frequencies.",
+
+    bruteForce: {
+      explanation:
+        "Compare elements from both arrays and identify matching values.",
+      code: `List<Integer> list = new ArrayList<>();
+
+for (int i = 0; i < array1.length; i++) {
+    for (int j = 0; j < array2.length; j++) {
+        if (array1[i] == array2[j]) {
+            list.add(array1[i]);
+            break;
+        }
+    }
+}`,
+      timeComplexity: "O(n × m)",
+      spaceComplexity: "O(k) output",
+    },
+
+    optimal: {
+      explanation:
+        "Count values in the first array with a HashMap and consume one frequency whenever a matching value is found in the second array.",
+      code: `HashMap<Integer, Integer> hashMap = new HashMap<>();
+List<Integer> list = new ArrayList<>();
+
+for (int x : array1) {
+    hashMap.put(
+        x,
+        hashMap.getOrDefault(x, 0) + 1
+    );
+}
+
+for (int x : array2) {
+    if (hashMap.containsKey(x)
+            && hashMap.get(x) > 0) {
+        list.add(x);
+        hashMap.put(x, hashMap.get(x) - 1);
+    }
+}
+
+System.out.println(list);`,
+      timeComplexity: "O(n + m) average",
+      spaceComplexity: "O(n + k)",
+    },
+
+    reasoning:
+      "Because duplicates matter, I need frequencies rather than simple presence. Each match consumes one available occurrence.",
+
+    takeaway:
+      "When two arrays must be intersected with duplicates, frequency counting is more precise than a simple HashSet.",
   },
 
   {
     id: 39,
-    title: "Find Common Elements",
+    title: "Maximum Difference",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 15,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Greedy",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the maximum value of array[j] - array[i] where i < j and array[j] is greater than array[i]. If no valid increasing pair exists, return -1.",
+
+    bruteForce: {
+      explanation:
+        "Try every valid pair of indices and keep the largest positive difference.",
+      code: `int result = -1;
+
+for (int i = 0; i < array.length; i++) {
+    for (int j = i + 1; j < array.length; j++) {
+        if (array[j] > array[i]) {
+            result = Math.max(
+                result,
+                array[j] - array[i]
+            );
+        }
+    }
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Track the minimum value seen so far and calculate the difference using each later value.",
+      code: `int result = -1;
+int minimum = array[0];
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] > minimum) {
+        result = Math.max(
+            result,
+            array[i] - minimum
+        );
+    }
+
+    minimum = Math.min(minimum, array[i]);
+}
+
+System.out.println(result);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "For every later value, the best earlier value to subtract is the smallest value seen so far.",
+
+    takeaway:
+      "Tracking the best previous value can turn a pairwise comparison problem into a single greedy pass.",
   },
 
   {
     id: 40,
-    title: "Find Unique Elements",
+    title: "Best Time to Buy and Sell Stock",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 16,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Greedy",
+    type: "Documented",
+
+    problem:
+      "Given stock prices by day, choose one day to buy and a later day to sell to maximize profit. If no profit is possible, return 0.",
+
+    bruteForce: {
+      explanation:
+        "Try every buying day with every later selling day and keep the maximum profit.",
+      code: `int maxProfit = 0;
+
+for (int i = 0; i < array.length; i++) {
+    for (int j = i + 1; j < array.length; j++) {
+        maxProfit = Math.max(
+            maxProfit,
+            array[j] - array[i]
+        );
+    }
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Track the minimum price seen so far and calculate the best profit using each current price.",
+      code: `int maxProfit = 0;
+int minimum = array[0];
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] > minimum) {
+        maxProfit = Math.max(
+            maxProfit,
+            array[i] - minimum
+        );
+    }
+
+    minimum = Math.min(minimum, array[i]);
+}
+
+System.out.println(maxProfit);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "I only need the cheapest buying price seen before the current day. That gives the best possible profit if I sell today.",
+
+    takeaway:
+      "A running minimum can eliminate the need to compare every possible buy-and-sell pair.",
   },
 
   {
     id: 41,
-    title: "Find the First Repeating Element",
+    title: "Leaders in an Array",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 17,
     difficulty: "Practice",
-    pattern: "HashMap",
-    type: "Practice",
+    pattern: "Arrays",
+    type: "Documented",
+
+    problem:
+      "An element is a leader if it is greater than or equal to every element to its right. Find all leaders in the array.",
+
+    bruteForce: {
+      explanation:
+        "For each element, scan all elements to its right and determine whether any of them is greater.",
+      code: `for (int i = 0; i < array.length; i++) {
+    boolean isLeader = true;
+
+    for (int j = i + 1; j < array.length; j++) {
+        if (array[i] < array[j]) {
+            isLeader = false;
+            break;
+        }
+    }
+
+    if (isLeader) {
+        System.out.println(array[i]);
+    }
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1) excluding output",
+    },
+
+    optimal: {
+      explanation:
+        "Scan from right to left while maintaining the maximum value seen on the right.",
+      code: `int maximumRight = array[array.length - 1];
+
+System.out.println(maximumRight);
+
+for (int i = array.length - 2; i >= 0; i--) {
+    if (array[i] >= maximumRight) {
+        maximumRight = array[i];
+        System.out.println(maximumRight);
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1) excluding output",
+    },
+
+    reasoning:
+      "When scanning from the right, I already know the maximum value to the right. This lets me decide whether the current element is a leader.",
+
+    takeaway:
+      "Scanning from the direction of the constraint can turn repeated right-side checks into one pass.",
   },
 
   {
     id: 42,
-    title: "Find the First Non-Repeating Element",
+    title: "Move Negative Numbers",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 18,
     difficulty: "Practice",
-    pattern: "HashMap",
-    type: "Practice",
+    pattern: "Two Pointers",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, move all negative numbers to the left side and non-negative numbers to the right side. Relative order is not required.",
+
+    bruteForce: {
+      explanation:
+        "Create another array, place negative values first, and then place non-negative values.",
+      code: `int[] result = new int[array.length];
+int index = 0;
+
+for (int value : array) {
+    if (value < 0) {
+        result[index++] = value;
+    }
+}
+
+for (int value : array) {
+    if (value >= 0) {
+        result[index++] = value;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(n)",
+    },
+
+    optimal: {
+      explanation:
+        "Use a partition pointer. Whenever a negative value is found, swap it into the next negative position.",
+      code: `int j = 0;
+
+for (int i = 0; i < array.length; i++) {
+    if (array[i] < 0) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        j++;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "The pointer j marks the next position where a negative number should be placed, while i scans the array.",
+
+    takeaway:
+      "Partitioning with two pointers can rearrange an array in place when relative order is not required.",
   },
 
   {
     id: 43,
-    title: "Left Rotate an Array",
+    title: "Remove Duplicates",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 19,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Two Pointers",
+    type: "Documented",
+
+    problem:
+      "Given a sorted integer array, remove duplicates in place, keep each unique value once, and return the number of unique elements.",
+
+    bruteForce: {
+      explanation:
+        "Use a separate collection to store unique values and then copy those values back into the array.",
+      code: `List<Integer> unique = new ArrayList<>();
+
+for (int value : array) {
+    if (unique.isEmpty()
+            || unique.get(unique.size() - 1) != value) {
+        unique.add(value);
+    }
+}
+
+for (int i = 0; i < unique.size(); i++) {
+    array[i] = unique.get(i);
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(n)",
+    },
+
+    optimal: {
+      explanation:
+        "Because the array is sorted, equal values are adjacent. Use a write pointer to place each new unique value in the next position.",
+      code: `if (array.length == 0) {
+    return;
+}
+
+int j = 1;
+
+for (int i = 1; i < array.length; i++) {
+    if (array[i] != array[j - 1]) {
+        array[j++] = array[i];
+    }
+}
+
+System.out.println(j);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "The sorted order means duplicates are next to each other, so I only need to compare each value with the last unique value.",
+
+    takeaway:
+      "Sorted arrays often make in-place duplicate removal possible with two pointers.",
   },
 
   {
     id: 44,
-    title: "Right Rotate an Array",
+    title: "First Repeating Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 20,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "HashSet",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the first repeating element when scanning from left to right. If none exists, report that no repeating element was found.",
+
+    bruteForce: {
+      explanation:
+        "For each element, compare it with all previous elements. The first match found while scanning left to right is the first repeating element.",
+      code: `int result = 0;
+boolean isFound = false;
+
+for (int i = 0; i < array.length; i++) {
+    for (int j = 0; j < i; j++) {
+        if (array[i] == array[j]) {
+            result = array[i];
+            isFound = true;
+            break;
+        }
+    }
+
+    if (isFound) {
+        break;
+    }
+}
+
+if (isFound) {
+    System.out.println(result);
+} else {
+    System.out.println("No repeating element found");
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Use a HashSet to remember values already seen. The first value that is already in the set is the first repeating element.",
+      code: `int result = 0;
+boolean isFound = false;
+HashSet<Integer> hashSet = new HashSet<>();
+
+for (int x : array) {
+    if (hashSet.contains(x)) {
+        result = x;
+        isFound = true;
+        break;
+    } else {
+        hashSet.add(x);
+    }
+}
+
+if (isFound) {
+    System.out.println(result);
+} else {
+    System.out.println("No repeating element found");
+}`,
+      timeComplexity: "O(n) average",
+      spaceComplexity: "O(n)",
+    },
+
+    reasoning:
+      "The HashSet records every value encountered so far. When a value appears again, it is immediately detected.",
+
+    takeaway:
+      "HashSet is useful when the problem asks whether a value has already been seen.",
   },
 
   {
     id: 45,
-    title: "Find Pair with Given Sum",
+    title: "First Non-Repeating Element",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 21,
     difficulty: "Practice",
     pattern: "HashMap",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the first element that appears only once. If no such element exists, print that no non-repeating element was found.",
+
+    bruteForce: {
+      explanation:
+        "For each element, scan the remaining array to determine whether another occurrence exists.",
+      code: `boolean isFound = false;
+
+for (int i = 0; i < array.length; i++) {
+    boolean isDuplicate = false;
+
+    for (int j = i + 1; j < array.length; j++) {
+        if (array[i] == array[j]) {
+            isDuplicate = true;
+            break;
+        }
+    }
+
+    if (!isDuplicate) {
+        System.out.println(array[i]);
+        isFound = true;
+        break;
+    }
+}
+
+if (!isFound) {
+    System.out.println("No non-repeating element found");
+}`,
+      timeComplexity: "O(n²)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Count every element with a HashMap, then scan the original array again so the first value with frequency one is returned.",
+      code: `HashMap<Integer, Integer> hashMap = new HashMap<>();
+
+for (int x : array) {
+    hashMap.put(
+        x,
+        hashMap.getOrDefault(x, 0) + 1
+    );
+}
+
+for (int x : array) {
+    if (hashMap.get(x) == 1) {
+        System.out.println(x);
+        return;
+    }
+}
+
+System.out.println("No non-repeating element found");`,
+      timeComplexity: "O(n) average",
+      spaceComplexity: "O(n)",
+    },
+
+    reasoning:
+      "The first pass determines frequency, while the second pass preserves the original order and finds the first value whose frequency is exactly one.",
+
+    takeaway:
+      "Frequency counting plus a second ordered traversal is a powerful pattern for first-occurrence problems.",
   },
 
   {
     id: 46,
-    title: "Find Missing and Duplicate Number",
+    title: "Check if Array is Sorted",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 22,
     difficulty: "Practice",
     pattern: "Arrays",
-    type: "Practice",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, determine whether it is sorted in non-decreasing order.",
+
+    bruteForce: {
+      explanation:
+        "Compare each adjacent pair and report false as soon as an element is greater than the next one.",
+      code: `boolean isSorted = true;
+
+for (int i = 0; i < array.length - 1; i++) {
+    if (array[i] > array[i + 1]) {
+        isSorted = false;
+        break;
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation: "A single adjacent comparison scan is already optimal.",
+      code: `boolean isSorted = true;
+
+for (int i = 0; i < array.length - 1; i++) {
+    if (array[i] > array[i + 1]) {
+        isSorted = false;
+        break;
+    }
+}
+
+System.out.println(isSorted);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "A non-decreasing array must satisfy array[i] <= array[i + 1] for every adjacent pair. One violation is enough to declare the array unsorted.",
+
+    takeaway:
+      "For ordering checks, look for the first local violation instead of comparing every pair.",
   },
 
   {
     id: 47,
-    title: "Merge Two Sorted Arrays",
+    title: "Find Missing Positive Number",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 23,
     difficulty: "Practice",
-    pattern: "Two Pointers",
-    type: "Practice",
+    pattern: "In-place Index Marking",
+    type: "Documented",
+
+    problem:
+      "Given an integer array, find the smallest positive integer that is missing from the array.",
+
+    bruteForce: {
+      explanation:
+        "Store all positive values in a HashSet, then check positive integers starting from 1 until a missing value is found.",
+      code: `int largestNumber = 0;
+HashSet<Integer> hashSet = new HashSet<>();
+
+for (int x : array) {
+    largestNumber = Math.max(largestNumber, x);
+
+    if (x > 0) {
+        hashSet.add(x);
+    }
+}
+
+if (largestNumber < array.length) {
+    largestNumber = array.length;
+}
+
+for (int i = 1; i <= largestNumber; i++) {
+    if (!hashSet.contains(i)) {
+        System.out.println(i);
+        return;
+    }
+}`,
+      timeComplexity: "O(n) average",
+      spaceComplexity: "O(n)",
+    },
+
+    optimal: {
+      explanation:
+        "Replace irrelevant values with n + 1, use each remaining positive value to mark its corresponding index negative, then find the first positive position.",
+      code: `for (int i = 0; i < array.length; i++) {
+    if (array[i] <= 0 || array[i] > array.length) {
+        array[i] = array.length + 1;
+    }
+}
+
+for (int i = 0; i < array.length; i++) {
+    int index = Math.abs(array[i]) - 1;
+
+    if (index < array.length) {
+        array[index] = -Math.abs(array[index]);
+    }
+}
+
+for (int i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+        System.out.println(i + 1);
+        return;
+    }
+}
+
+System.out.println(array.length + 1);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "For an array of length n, the smallest missing positive must be between 1 and n + 1. The array itself can therefore act as a presence marker.",
+
+    takeaway:
+      "Index marking can turn an O(n)-space presence problem into an O(1)-space in-place solution.",
   },
 
   {
     id: 48,
-    title: "Find the Majority Element",
+    title: "Maximum Consecutive 1s",
     platform: "DSA Practice",
-    problemNumber: null,
+    practiceNumber: 24,
     difficulty: "Practice",
-    pattern: "Arrays",
-    type: "Practice",
+    pattern: "Running Count",
+    type: "Documented",
+
+    problem:
+      "Given a binary array containing only 0 and 1, find the maximum number of consecutive 1s.",
+
+    bruteForce: {
+      explanation:
+        "Scan each run of consecutive 1s, count its length, and keep the largest run found.",
+      code: `int maxOnes = 0;
+
+for (int i = 0; i < array.length; i++) {
+    if (array[i] == 1) {
+        int current = 0;
+
+        while (i < array.length && array[i] == 1) {
+            current++;
+            i++;
+        }
+
+        maxOnes = Math.max(maxOnes, current);
+    }
+}`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    optimal: {
+      explanation:
+        "Maintain a running count of the current consecutive 1s and reset it whenever a 0 appears.",
+      code: `int maxOnes = 0;
+int currentOnes = 0;
+
+for (int x : array) {
+    if (x == 1) {
+        currentOnes++;
+        maxOnes = Math.max(
+            maxOnes,
+            currentOnes
+        );
+    } else {
+        currentOnes = 0;
+    }
+}
+
+System.out.println(maxOnes);`,
+      timeComplexity: "O(n)",
+      spaceComplexity: "O(1)",
+    },
+
+    reasoning:
+      "currentOnes tracks the current run of 1s, while maxOnes remembers the longest run seen anywhere in the array.",
+
+    takeaway:
+      "A running counter is a simple and efficient pattern for consecutive-sequence problems.",
   },
 ];
 
