@@ -37,7 +37,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -77,6 +76,10 @@ img {
 section {
   width: 100%;
   padding: var(--section-padding) 24px;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 section > div {
