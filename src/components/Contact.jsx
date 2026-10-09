@@ -17,7 +17,7 @@ function Contact() {
         </div>
 
         <div className="contact-links">
-          <a href="mailto:your-email@example.com">
+          <a href="mailto:posakarthik16@gmail.com">
             <span>Email</span>
             <span>→</span>
           </a>
@@ -32,7 +32,7 @@ function Contact() {
           </a>
 
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/posakarthik"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -40,7 +40,11 @@ function Contact() {
             <span>→</span>
           </a>
 
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span>Resume</span>
             <span>→</span>
           </a>
