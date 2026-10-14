@@ -1,6 +1,19 @@
 import myPicture from "../assets/portfolio-picture.png";
 
 function Hero() {
+  const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section id="home" className="hero">
       <div className="hero-container">
@@ -22,11 +35,19 @@ function Hero() {
           </p>
 
           <div className="hero-actions">
-            <a href="#work" className="button button-primary">
+            <a
+              href="#work"
+              className="button button-primary"
+              onClick={(event) => scrollToSection(event, "work")}
+            >
               Explore My Work
             </a>
 
-            <a href="#problems" className="button button-secondary">
+            <a
+              href="#problems"
+              className="button button-secondary"
+              onClick={(event) => scrollToSection(event, "problems")}
+            >
               See How I Think
             </a>
           </div>
