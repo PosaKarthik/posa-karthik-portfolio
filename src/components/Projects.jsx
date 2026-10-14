@@ -1,4 +1,5 @@
 import projects from "../data/projects";
+import { Link } from "react-router-dom";
 
 function Projects() {
   const featuredProjects = projects.slice(0, 4);
@@ -85,12 +86,9 @@ function Projects() {
         </div>
 
         <div className="projects-cta">
-          <a
-            href={`${import.meta.env.BASE_URL}projects`}
-            className="button button-secondary"
-          >
+          <Link to="/projects" className="button button-secondary">
             View All Projects →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
