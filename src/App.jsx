@@ -13,6 +13,7 @@ import Problems from "./pages/Problems";
 import AllProjects from "./pages/AllProjects";
 
 import ProblemDetails from "./pages/ProblemDetails";
+import ScrollToTop from "./components/ScrollToTop";
 
 function Home() {
   return (
@@ -37,6 +38,7 @@ function Home() {
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<AllProjects />} />
