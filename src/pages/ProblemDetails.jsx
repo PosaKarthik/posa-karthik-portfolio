@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import problems from "../data/problems";
 
 function ProblemDetails() {
@@ -26,12 +26,9 @@ function ProblemDetails() {
 
           <p>The problem you're looking for doesn't exist.</p>
 
-          <a
-            href={`${import.meta.env.BASE_URL}problems`}
-            className="problem-details-back"
-          >
+          <Link to="/problems" className="problem-details-back">
             ← Back to Problem Journal
-          </a>
+          </Link>
         </div>
       </main>
     );
@@ -172,12 +169,9 @@ function ProblemDetails() {
           </>
         )}
 
-        <a
-          href={`${import.meta.env.BASE_URL}problems`}
-          className="problem-details-back"
-        >
+        <Link to="/problems" className="problem-details-back">
           ← Back to Problem Journal
-        </a>
+        </Link>
       </div>
     </main>
   );

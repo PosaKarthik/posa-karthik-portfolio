@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import problems from "../data/problems";
 
 function Problems() {
@@ -163,9 +164,7 @@ function Problems() {
               </div>
 
               <div className="problem-footer">
-                <a href={`${import.meta.env.BASE_URL}problems/${problem.id}`}>
-                  View Problem →
-                </a>
+                <Link to={`/problems/${problem.id}`}>View Problem →</Link>
               </div>
             </article>
           ))}

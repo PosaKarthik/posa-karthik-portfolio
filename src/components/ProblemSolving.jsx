@@ -1,4 +1,5 @@
 import problems from "../data/problems";
+import { Link } from "react-router-dom";
 
 function ProblemSolving() {
   const featuredProblemIds = [1, 13, 14, 17, 21, 18];
@@ -84,21 +85,16 @@ function ProblemSolving() {
               </div>
 
               <div className="problem-footer">
-                <a href={`${import.meta.env.BASE_URL}problems/${problem.id}`}>
-                  View Problem →
-                </a>
+                <Link to={`/problems/${problem.id}`}>View Problem →</Link>
               </div>
             </article>
           ))}
         </div>
 
         <div className="problem-journal-cta">
-          <a
-            href={`${import.meta.env.BASE_URL}problems`}
-            className="button button-primary"
-          >
+          <Link to="/problems" className="button button-primary">
             Explore Full Problem Journal →
-          </a>
+          </Link>
         </div>
       </div>
     </section>
