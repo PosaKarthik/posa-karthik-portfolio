@@ -7,29 +7,86 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  const scrollToSection = (event, sectionId) => {
+    event.preventDefault();
+    closeMenu();
+
+    const scroll = () => {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    };
+
+    // If we're on another route, return to the homepage first.
+    if (window.location.hash !== "#/") {
+      window.location.hash = "#/";
+      setTimeout(scroll, 100);
+    } else {
+      scroll();
+    }
+  };
+
+  const goHome = (event) => {
+    event.preventDefault();
+    closeMenu();
+
+    if (window.location.hash !== "#/") {
+      window.location.hash = "#/";
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-container">
-        {/* Logo */}
-        <a href="#home" className="navbar-logo" onClick={closeMenu}>
+        <a href="#/" className="navbar-logo" onClick={goHome}>
           PK
         </a>
 
-        {/* Desktop Navigation */}
         <nav className="navbar-links">
-          <a href="#home">Home</a>
-          <a href="#work">Work</a>
-          <a href="#problems">Problems</a>
-          <a href="#learning">Learning</a>
-          <a href="#contact">Contact</a>
+          <a href="#/" onClick={goHome}>
+            Home
+          </a>
+          <a href="#work" onClick={(event) => scrollToSection(event, "work")}>
+            Work
+          </a>
+          <a
+            href="#problems"
+            onClick={(event) => scrollToSection(event, "problems")}
+          >
+            Problems
+          </a>
+          <a
+            href="#learning"
+            onClick={(event) => scrollToSection(event, "learning")}
+          >
+            Learning
+          </a>
+          <a
+            href="#contact"
+            onClick={(event) => scrollToSection(event, "contact")}
+          >
+            Contact
+          </a>
         </nav>
 
-        {/* Desktop Connect Button */}
-        <a href="#contact" className="navbar-resume">
+        <a
+          href="#contact"
+          className="navbar-resume"
+          onClick={(event) => scrollToSection(event, "contact")}
+        >
           Let's Connect
         </a>
 
-        {/* Mobile Menu Button */}
         <button
           className={`navbar-menu-button ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -42,29 +99,41 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       <nav className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
-        <a href="#home" onClick={closeMenu}>
+        <a href="#/" onClick={goHome}>
           Home
         </a>
 
-        <a href="#work" onClick={closeMenu}>
+        <a href="#work" onClick={(event) => scrollToSection(event, "work")}>
           Work
         </a>
 
-        <a href="#problems" onClick={closeMenu}>
+        <a
+          href="#problems"
+          onClick={(event) => scrollToSection(event, "problems")}
+        >
           Problems
         </a>
 
-        <a href="#learning" onClick={closeMenu}>
+        <a
+          href="#learning"
+          onClick={(event) => scrollToSection(event, "learning")}
+        >
           Learning
         </a>
 
-        <a href="#contact" onClick={closeMenu}>
+        <a
+          href="#contact"
+          onClick={(event) => scrollToSection(event, "contact")}
+        >
           Contact
         </a>
 
-        <a href="#contact" className="mobile-connect" onClick={closeMenu}>
+        <a
+          href="#contact"
+          className="mobile-connect"
+          onClick={(event) => scrollToSection(event, "contact")}
+        >
           Let's Connect
         </a>
       </nav>
